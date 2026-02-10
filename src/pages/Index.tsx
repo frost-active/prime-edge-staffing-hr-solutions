@@ -4,10 +4,24 @@ import AnimateOnScroll from "@/components/AnimateOnScroll";
 import Layout from "@/components/Layout";
 import heroImage from "@/assets/hero-workforce.jpg";
 import {
-  Shield, Users, FileCheck, BarChart3, Eye, Target,
-  CheckCircle, Heart, Award, Handshake,
-  Factory, HardHat, Monitor, Truck, Stethoscope, ShoppingCart,
-  ArrowRight, Star
+  Shield,
+  Users,
+  FileCheck,
+  BarChart3,
+  Eye,
+  Target,
+  CheckCircle,
+  Heart,
+  Award,
+  Handshake,
+  Factory,
+  HardHat,
+  Monitor,
+  Truck,
+  Stethoscope,
+  ShoppingCart,
+  ArrowRight,
+  Star,
 } from "lucide-react";
 
 const services = [
@@ -76,14 +90,13 @@ const Index = () => {
             </AnimateOnScroll>
             <AnimateOnScroll delay={100}>
               <h1 className="mt-4 text-4xl font-extrabold leading-tight text-primary-foreground md:text-5xl lg:text-6xl">
-                Trusted HR Partner for{" "}
-                <span className="text-accent">Sustainable Growth</span>
+                Trusted HR Partner for <span className="text-accent">Sustainable Growth</span>
               </h1>
             </AnimateOnScroll>
             <AnimateOnScroll delay={200}>
               <p className="mt-6 text-lg leading-relaxed text-primary-foreground/80 md:text-xl">
-                Delivering compliant, people-centric HR solutions that enable organizations
-                to focus on their core business while we manage their workforce needs.
+                Delivering compliant, people-centric HR solutions that enable organizations to focus on their core
+                business while we manage their workforce needs.
               </p>
             </AnimateOnScroll>
             <AnimateOnScroll delay={300}>
@@ -94,14 +107,14 @@ const Index = () => {
                   </Button>
                 </Link>
                 <Link to="/contact">
-  <Button
-    size="lg"
-    variant="outline"
-    className="border-primary-foreground text-primary-foreground bg-transparent hover:bg-primary-foreground hover:text-primary transition-colors duration-300"
-  >
-    Contact Us
-  </Button>
-</Link>
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="border-primary-foreground text-primary-foreground bg-transparent hover:bg-primary-foreground hover:text-primary transition-colors duration-300"
+                  >
+                    Contact Us
+                  </Button>
+                </Link>
               </div>
             </AnimateOnScroll>
           </div>
@@ -136,9 +149,8 @@ const Index = () => {
                 </div>
                 <h2 className="mb-4 text-2xl font-bold text-foreground">Our Vision</h2>
                 <p className="leading-relaxed text-muted-foreground">
-                  To become a trusted and preferred HR partner by delivering reliable staffing
-                  solutions, compliant HR practices, and people-centric services that enable
-                  organizations to grow sustainably.
+                  To become a trusted and preferred HR partner by delivering reliable staffing solutions, compliant HR
+                  practices, and people-centric services that enable organizations to grow sustainably.
                 </p>
               </div>
             </AnimateOnScroll>
@@ -185,11 +197,17 @@ const Index = () => {
               <AnimateOnScroll key={service.title} delay={i * 100}>
                 <div className="card-professional group h-full border-t-4 border-t-primary p-6">
                   <div className="mb-4 inline-flex items-center justify-center rounded-lg bg-primary/10 p-3 transition-colors duration-300 group-hover:bg-accent/10">
-                    <service.icon size={24} className="text-primary transition-colors duration-300 group-hover:text-accent" />
+                    <service.icon
+                      size={24}
+                      className="text-primary transition-colors duration-300 group-hover:text-accent"
+                    />
                   </div>
                   <h3 className="mb-2 text-lg font-bold">{service.title}</h3>
                   <p className="text-sm leading-relaxed text-muted-foreground">{service.desc}</p>
-                  <Link to="/services" className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-accent transition-colors hover:text-primary">
+                  <Link
+                    to="/services"
+                    className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-accent transition-colors hover:text-primary"
+                  >
                     Learn More <ArrowRight size={14} />
                   </Link>
                 </div>
@@ -260,8 +278,12 @@ const Index = () => {
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
             {values.map((v, i) => (
               <AnimateOnScroll key={v.title} delay={i * 80}>
-                <div className={`card-professional group p-6 text-center ${v.highlight ? "border-2 border-accent/30 ring-2 ring-accent/10" : ""}`}>
-                  <div className={`mx-auto mb-3 inline-flex items-center justify-center rounded-full p-3 ${v.highlight ? "bg-accent/10" : "bg-primary/10"}`}>
+                <div
+                  className={`card-professional group p-6 text-center ${v.highlight ? "border-2 border-accent/30 ring-2 ring-accent/10" : ""}`}
+                >
+                  <div
+                    className={`mx-auto mb-3 inline-flex items-center justify-center rounded-full p-3 ${v.highlight ? "bg-accent/10" : "bg-primary/10"}`}
+                  >
                     <v.icon size={22} className={v.highlight ? "text-accent" : "text-primary"} />
                   </div>
                   <h3 className="text-sm font-bold">{v.title}</h3>
@@ -286,7 +308,10 @@ const Index = () => {
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {industries.map((ind, i) => (
               <AnimateOnScroll key={ind.label} delay={i * 80}>
-                <Link to="/industries" className="card-professional group flex items-center gap-4 p-6 transition-all hover:border-accent/30">
+                <Link
+                  to="/industries"
+                  className="card-professional group flex items-center gap-4 p-6 transition-all hover:border-accent/30"
+                >
                   <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-primary/10 transition-colors group-hover:bg-accent/10">
                     <ind.icon size={24} className="text-primary transition-colors group-hover:text-accent" />
                   </div>
@@ -294,7 +319,10 @@ const Index = () => {
                     <h3 className="font-bold">{ind.label}</h3>
                     <p className="text-sm text-muted-foreground">Tailored workforce solutions</p>
                   </div>
-                  <ArrowRight size={16} className="ml-auto text-muted-foreground/40 transition-colors group-hover:text-accent" />
+                  <ArrowRight
+                    size={16}
+                    className="ml-auto text-muted-foreground/40 transition-colors group-hover:text-accent"
+                  />
                 </Link>
               </AnimateOnScroll>
             ))}
@@ -314,7 +342,8 @@ const Index = () => {
               Ready to Streamline Your HR Operations?
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-primary-foreground/70">
-              Get a free compliance consultation and discover how Prime Edge can help your organization grow sustainably.
+              Get a free compliance consultation and discover how Prime Edge can help your organization grow
+              sustainably.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-4">
               <Link to="/contact">
@@ -323,7 +352,11 @@ const Index = () => {
                 </Button>
               </Link>
               <Link to="/services">
-                <Button size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-primary-foreground text-primary-foreground bg-transparent hover:bg-primary-foreground hover:text-primary transition-colors duration-300"
+                >
                   Download Service Brochure
                 </Button>
               </Link>
