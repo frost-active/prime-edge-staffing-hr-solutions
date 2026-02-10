@@ -36,7 +36,7 @@ const Header = () => {
       {/* Main nav */}
       <div className="container-wide flex items-center justify-between py-3 md:py-4">
         <Link to="/" className="flex-shrink-0">
-          <img src={logo} alt="Prime Edge Staffing & HR Solutions" className="h-10 w-auto md:h-20" />
+          <img src={logo} alt="Prime Edge Staffing & HR Solutions" className="h-10 w-auto md:h-16" />
         </Link>
 
         {/* Desktop nav */}
