@@ -102,8 +102,6 @@ const Index = () => {
     Contact Us
   </Button>
 </Link>
-
-                </Link>
               </div>
             </AnimateOnScroll>
           </div>
