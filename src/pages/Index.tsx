@@ -154,7 +154,8 @@ const Index = () => {
                 </p>
                 <p className="leading-relaxed text-muted-foreground">
                   We strive to build long-term partnerships through transparency, integrity, and a deep understanding of
-                  workforce dynamics and our commitment is to empower businesses with the right talent.
+                  workforce dynamics and our commitment is to empower businesses with the right talent, streamlined HR
+                  processes.
                 </p>
               </div>
             </AnimateOnScroll>
