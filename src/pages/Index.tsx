@@ -152,9 +152,9 @@ const Index = () => {
                   To become a trusted and preferred HR partner by delivering reliable staffing solutions, compliant HR
                   practices, and people-centric services that enable organizations to grow sustainably.
                 </p>
-                <p>
+                <p className="leading-relaxed text-muted-foreground">
                   We strive to build long-term partnerships through transparency, integrity, and a deep understanding of
-                  workforce dynamics.
+                  workforce dynamics and our commitment is to empower businesses with the right talent.
                 </p>
               </div>
             </AnimateOnScroll>
