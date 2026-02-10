@@ -76,7 +76,7 @@ const Index = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="relative min-h-[85vh] flex items-center overflow-hidden lg:pt-32">
+      <section className="relative min-h-[85vh] flex items-center overflow-hidden lg:pt-24">
         <div className="absolute inset-0">
           <img src={heroImage} alt="Professional workforce" className="h-full w-full object-cover" />
           <div className="absolute inset-0 bg-hero-gradient" />
