@@ -150,7 +150,9 @@ const Index = () => {
                 <h2 className="mb-4 text-2xl font-bold text-foreground">Our Vision</h2>
                 <p className="leading-relaxed text-muted-foreground">
                   To become a trusted and preferred HR partner by delivering reliable staffing solutions, compliant HR
-                  practices, and people-centric services that enable organizations to grow sustainably.
+                  practices, and people-centric services that enable organizations to grow sustainably. We strive to
+                  build long-term partnerships through transparency, integrity, and a deep understanding of workforce
+                  dynamics.
                 </p>
               </div>
             </AnimateOnScroll>
