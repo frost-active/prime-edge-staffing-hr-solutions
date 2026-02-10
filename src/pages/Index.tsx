@@ -94,9 +94,15 @@ const Index = () => {
                   </Button>
                 </Link>
                 <Link to="/contact">
-                  <Button size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10">
-                    Contact Us
-                  </Button>
+  <Button
+    size="lg"
+    variant="outline"
+    className="border-primary-foreground text-primary-foreground bg-transparent hover:bg-primary-foreground hover:text-primary transition-colors duration-300"
+  >
+    Contact Us
+  </Button>
+</Link>
+
                 </Link>
               </div>
             </AnimateOnScroll>
