@@ -138,46 +138,72 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Vision & Mission */}
+      {/* Vision & Mission – Redesigned */}
       <section className="section-padding bg-background">
         <div className="container-wide">
-          <div className="grid gap-8 md:grid-cols-2">
+          <div className="grid gap-10 lg:grid-cols-2">
+            {/* Vision */}
             <AnimateOnScroll>
-              <div className="card-professional border-t-4 border-t-primary p-8">
-                <div className="mb-4 inline-flex items-center justify-center rounded-lg bg-primary/10 p-3">
-                  <Target size={24} className="text-primary" />
+              <div className="relative overflow-hidden rounded-2xl border border-border/60 bg-card p-10 shadow-sm">
+                <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-primary/10 blur-2xl" />
+
+                <div className="mb-6 inline-flex items-center gap-3">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
+                    <Target className="text-primary" size={26} />
+                  </div>
+                  <h2 className="text-2xl font-bold text-foreground">Our Vision</h2>
                 </div>
-                <h2 className="mb-4 text-2xl font-bold text-foreground">Our Vision</h2>
-                <p className="leading-relaxed text-muted-foreground">
-                  To become a trusted and preferred HR partner by delivering reliable staffing solutions, compliant HR
-                  practices, and people-centric services that enable organizations to grow sustainably.
+
+                <p className="mb-6 leading-relaxed text-muted-foreground">
+                  To be a trusted and preferred HR partner for organizations by delivering reliable workforce solutions,
+                  compliant HR practices, and people-centric services that drive sustainable business growth.
                 </p>
-                <p className="leading-relaxed text-muted-foreground">
-                  We strive to build long-term partnerships through transparency, integrity, and a deep understanding of
-                  workforce dynamics and our commitment is to empower businesses with the right talent, streamlined HR
-                  processes.
-                </p>
+
+                <div className="space-y-4">
+                  {[
+                    "Build long-term partnerships based on trust and transparency",
+                    "Empower organizations with the right talent and HR strategy",
+                    "Promote ethical employment and responsible workforce practices",
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-start gap-3">
+                      <CheckCircle className="mt-1 text-primary" size={18} />
+                      <span className="text-sm text-muted-foreground">{item}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </AnimateOnScroll>
+
+            {/* Mission */}
             <AnimateOnScroll delay={150}>
-              <div className="card-professional border-t-4 border-t-accent p-8">
-                <div className="mb-4 inline-flex items-center justify-center rounded-lg bg-accent/10 p-3">
-                  <Star size={24} className="text-accent" />
+              <div className="relative overflow-hidden rounded-2xl border border-border/60 bg-card p-10 shadow-sm">
+                <div className="absolute -left-10 -bottom-10 h-32 w-32 rounded-full bg-accent/10 blur-2xl" />
+
+                <div className="mb-6 inline-flex items-center gap-3">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10">
+                    <Star className="text-accent" size={26} />
+                  </div>
+                  <h2 className="text-2xl font-bold text-foreground">Our Mission</h2>
                 </div>
-                <h2 className="mb-4 text-2xl font-bold text-foreground">Our Mission</h2>
-                <ul className="space-y-3 text-muted-foreground">
+
+                <p className="mb-6 leading-relaxed text-muted-foreground">
+                  To deliver end-to-end HR and staffing solutions aligned with business objectives while ensuring
+                  compliance, operational efficiency, and a strong focus on people and performance.
+                </p>
+
+                <div className="grid gap-4 sm:grid-cols-2">
                   {[
-                    "Provide end-to-end staffing and HR services aligned with client business goals",
-                    "Ensure statutory compliance and ethical employment practices",
-                    "Deliver scalable workforce solutions across industries",
-                    "Build long-term partnerships through quality, transparency, and accountability",
-                  ].map((m, i) => (
-                    <li key={i} className="flex items-start gap-2">
-                      <CheckCircle size={16} className="mt-1 flex-shrink-0 text-accent" />
-                      <span>{m}</span>
-                    </li>
+                    "Provide scalable staffing and HR services",
+                    "Ensure statutory compliance and governance",
+                    "Enhance employee lifecycle management",
+                    "Drive continuous HR process improvement",
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-start gap-3">
+                      <CheckCircle className="mt-1 text-accent" size={18} />
+                      <span className="text-sm text-muted-foreground">{item}</span>
+                    </div>
                   ))}
-                </ul>
+                </div>
               </div>
             </AnimateOnScroll>
           </div>
