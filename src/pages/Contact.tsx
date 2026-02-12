@@ -4,76 +4,34 @@ import AnimateOnScroll from "@/components/AnimateOnScroll";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Phone, Mail, MapPin, Shield, CheckCircle, Send, FileText, ClipboardCheck, Calendar } from "lucide-react";
+import {
+  Phone, Mail, MapPin, Shield, CheckCircle, Send, ArrowRight,
+  FileText, ClipboardCheck, Calendar
+} from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
-const scriptURL =
-  "https://script.google.com/macros/s/AKfycbywIky-mGCVck1tz_SniigfAy3Lj9yddFNYretz7tmnBfcGVHa4s0RY6Z-eixBtEEM2/exec"; // 🔁Google Script URL
-
 const leadMagnets = [
-  {
-    icon: ClipboardCheck,
-    title: "Download Compliance Checklist",
-    desc: "Essential statutory compliance checklist for Indian businesses",
-  },
+  { icon: ClipboardCheck, title: "Download Compliance Checklist", desc: "Essential statutory compliance checklist for Indian businesses" },
   { icon: FileText, title: "Free HR Compliance Audit", desc: "Get a comprehensive audit of your HR compliance status" },
-  {
-    icon: Calendar,
-    title: "Request Staffing Proposal",
-    desc: "Custom staffing proposal tailored to your requirements",
-  },
+  { icon: Calendar, title: "Request Staffing Proposal", desc: "Custom staffing proposal tailored to your requirements" },
 ];
-
-const validateEmail = (email: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-
-const validatePhone = (phone: string) => /^(\+91[\-\s]?)?[6-9]\d{9}$/.test(phone);
 
 const Contact = () => {
   const { toast } = useToast();
   const [form, setForm] = useState({ name: "", email: "", phone: "", company: "", message: "" });
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-
-    if (!validateEmail(form.email)) {
-      toast({ title: "Invalid Email", description: "Please enter a valid email address." });
-      return;
-    }
-
-    if (form.phone && !validatePhone(form.phone)) {
-      toast({ title: "Invalid Phone Number", description: "Enter a valid Indian phone number." });
-      return;
-    }
-
-    try {
-      const res = await fetch(scriptURL, {
-        method: "POST",
-        body: JSON.stringify(form),
-      });
-
-      const result = await res.json();
-
-      if (result.result === "success") {
-        toast({
-          title: "Message Sent!",
-          description: "Thank you for contacting us. Our team will reach out within 24 hours.",
-        });
-
-        setForm({ name: "", email: "", phone: "", company: "", message: "" });
-      } else {
-        throw new Error("Submission failed");
-      }
-    } catch (error) {
-      toast({
-        title: "Submission Failed",
-        description: "Something went wrong. Please try again later.",
-        variant: "destructive",
-      });
-    }
+    toast({
+      title: "Message Sent!",
+      description: "Thank you for contacting us. We'll get back to you within 24 hours.",
+    });
+    setForm({ name: "", email: "", phone: "", company: "", message: "" });
   };
 
   return (
     <Layout>
+      {/* Hero */}
       <section className="bg-primary py-20 md:py-28">
         <div className="container-wide">
           <AnimateOnScroll>
@@ -87,6 +45,7 @@ const Contact = () => {
         </div>
       </section>
 
+      {/* Lead Magnets */}
       <section className="border-b border-border/50 bg-muted/50 py-10">
         <div className="container-wide grid gap-4 sm:grid-cols-3">
           {leadMagnets.map((lm, i) => (
@@ -103,9 +62,11 @@ const Contact = () => {
         </div>
       </section>
 
+      {/* Contact Form + Details */}
       <section className="section-padding bg-background">
         <div className="container-wide">
           <div className="grid gap-12 lg:grid-cols-5">
+            {/* Form */}
             <div className="lg:col-span-3">
               <AnimateOnScroll>
                 <h2 className="text-2xl font-bold">Send Us a Message</h2>
@@ -140,7 +101,7 @@ const Contact = () => {
                       <Input
                         value={form.phone}
                         onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                        placeholder="+91-9876543210"
+                        placeholder="+91-XXXXX XXXXX"
                       />
                     </div>
                     <div>
@@ -169,26 +130,54 @@ const Contact = () => {
               </AnimateOnScroll>
             </div>
 
+            {/* Contact info */}
             <div className="lg:col-span-2">
               <AnimateOnScroll delay={200}>
                 <div className="card-professional p-8">
                   <h3 className="text-lg font-bold">Get in Touch</h3>
-                  {/* Contact info unchanged */}
+                  <div className="mt-6 space-y-5">
+                    <div className="flex items-start gap-3">
+                      <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-primary/10">
+                        <Phone size={18} className="text-primary" />
+                      </div>
+                      <div>
+                        <p className="text-sm font-medium">Phone</p>
+                        <p className="text-sm text-muted-foreground">+91-XXXXX XXXXX</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-primary/10">
+                        <Mail size={18} className="text-primary" />
+                      </div>
+                      <div>
+                        <p className="text-sm font-medium">Email</p>
+                        <p className="text-sm text-muted-foreground">info@primeedgehr.com</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-primary/10">
+                        <MapPin size={18} className="text-primary" />
+                      </div>
+                      <div>
+                        <p className="text-sm font-medium">Location</p>
+                        <p className="text-sm text-muted-foreground">India</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Compliance */}
                   <div className="mt-8 rounded-lg border border-accent/20 bg-accent/5 p-4">
                     <div className="flex items-center gap-2">
                       <Shield size={18} className="text-accent" />
                       <h4 className="text-sm font-bold">Commitment to Compliance</h4>
                     </div>
                     <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-                      Operating in full compliance with applicable central and state labour laws, promoting fair
-                      employment practices and workplace ethics.
+                      Operating in full compliance with applicable central and state labour laws,
+                      promoting fair employment practices and workplace ethics.
                     </p>
                     <div className="mt-3 flex flex-wrap gap-1.5">
                       {["PF", "ESI", "Labour Law", "POSH"].map((b) => (
-                        <span
-                          key={b}
-                          className="inline-flex items-center gap-1 rounded-full border border-accent/20 bg-accent/10 px-2 py-0.5 text-xs font-medium text-accent"
-                        >
+                        <span key={b} className="inline-flex items-center gap-1 rounded-full border border-accent/20 bg-accent/10 px-2 py-0.5 text-xs font-medium text-accent">
                           <CheckCircle size={8} /> {b}
                         </span>
                       ))}
