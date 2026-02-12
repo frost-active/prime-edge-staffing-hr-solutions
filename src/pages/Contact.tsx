@@ -5,28 +5,82 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import {
-  Phone, Mail, MapPin, Shield, CheckCircle, Send, ArrowRight,
-  FileText, ClipboardCheck, Calendar
+  Phone,
+  Mail,
+  MapPin,
+  Shield,
+  CheckCircle,
+  Send,
+  ArrowRight,
+  FileText,
+  ClipboardCheck,
+  Calendar,
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const leadMagnets = [
-  { icon: ClipboardCheck, title: "Download Compliance Checklist", desc: "Essential statutory compliance checklist for Indian businesses" },
+  {
+    icon: ClipboardCheck,
+    title: "Download Compliance Checklist",
+    desc: "Essential statutory compliance checklist for Indian businesses",
+  },
   { icon: FileText, title: "Free HR Compliance Audit", desc: "Get a comprehensive audit of your HR compliance status" },
-  { icon: Calendar, title: "Request Staffing Proposal", desc: "Custom staffing proposal tailored to your requirements" },
+  {
+    icon: Calendar,
+    title: "Request Staffing Proposal",
+    desc: "Custom staffing proposal tailored to your requirements",
+  },
 ];
 
 const Contact = () => {
   const { toast } = useToast();
   const [form, setForm] = useState({ name: "", email: "", phone: "", company: "", message: "" });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const scriptURL =
+    "https://script.google.com/macros/s/AKfycbywIky-mGCVck1tz_SniigfAy3Lj9yddFNYretz7tmnBfcGVHa4s0RY6Z-eixBtEEM2/exec";
+
+  const validateEmail = (email: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+  const validatePhone = (phone: string) => /^(\+91[\-\s]?)?[6-9]\d{9}$/.test(phone);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for contacting us. We'll get back to you within 24 hours.",
-    });
-    setForm({ name: "", email: "", phone: "", company: "", message: "" });
+
+    if (!validateEmail(form.email)) {
+      toast({ title: "Invalid Email", description: "Please enter a valid email address." });
+      return;
+    }
+
+    if (form.phone && !validatePhone(form.phone)) {
+      toast({ title: "Invalid Phone Number", description: "Enter a valid Indian phone number." });
+      return;
+    }
+
+    try {
+      const res = await fetch(scriptURL, {
+        method: "POST",
+        body: JSON.stringify(form),
+      });
+
+      const result = await res.json();
+
+      if (result.result === "success") {
+        toast({
+          title: "Message Sent!",
+          description: "Thank you for contacting us.",
+        });
+
+        setForm({ name: "", email: "", phone: "", company: "", message: "" });
+      } else {
+        throw new Error("Error submitting form");
+      }
+    } catch (error) {
+      toast({
+        title: "Submission Failed",
+        description: "Something went wrong. Please try again later.",
+        variant: "destructive",
+      });
+    }
   };
 
   return (
@@ -89,6 +143,7 @@ const Contact = () => {
                       <Input
                         required
                         type="email"
+                        pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
                         value={form.email}
                         onChange={(e) => setForm({ ...form, email: e.target.value })}
                         placeholder="you@company.com"
@@ -99,9 +154,10 @@ const Contact = () => {
                     <div>
                       <label className="mb-1.5 block text-sm font-medium">Phone Number</label>
                       <Input
+                        pattern="^(\+91[\-\s]?)?[6-9]\d{9}$"
                         value={form.phone}
                         onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                        placeholder="+91-XXXXX XXXXX"
+                        placeholder="+91-9876543210"
                       />
                     </div>
                     <div>
@@ -172,12 +228,15 @@ const Contact = () => {
                       <h4 className="text-sm font-bold">Commitment to Compliance</h4>
                     </div>
                     <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-                      Operating in full compliance with applicable central and state labour laws,
-                      promoting fair employment practices and workplace ethics.
+                      Operating in full compliance with applicable central and state labour laws, promoting fair
+                      employment practices and workplace ethics.
                     </p>
                     <div className="mt-3 flex flex-wrap gap-1.5">
                       {["PF", "ESI", "Labour Law", "POSH"].map((b) => (
-                        <span key={b} className="inline-flex items-center gap-1 rounded-full border border-accent/20 bg-accent/10 px-2 py-0.5 text-xs font-medium text-accent">
+                        <span
+                          key={b}
+                          className="inline-flex items-center gap-1 rounded-full border border-accent/20 bg-accent/10 px-2 py-0.5 text-xs font-medium text-accent"
+                        >
                           <CheckCircle size={8} /> {b}
                         </span>
                       ))}
