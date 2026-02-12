@@ -24,6 +24,8 @@ import {
   Star,
 } from "lucide-react";
 
+import { motion } from "framer-motion";
+
 const services = [
   {
     icon: Users,
@@ -138,19 +140,31 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Vision & Mission – Redesigned */}
+      {/* Vision & Mission – Premium Animated */}
       <section className="section-padding bg-background">
         <div className="container-wide">
           <div className="grid gap-10 lg:grid-cols-2">
             {/* Vision */}
             <AnimateOnScroll>
-              <div className="relative overflow-hidden rounded-2xl border border-border/60 bg-card p-10 shadow-sm">
-                <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-primary/10 blur-2xl" />
+              <motion.div
+                whileHover={{ y: -10 }}
+                transition={{ type: "spring", stiffness: 200, damping: 15 }}
+                className="group relative overflow-hidden rounded-2xl border border-border/60 bg-card p-10 shadow-sm hover:shadow-xl hover:border-primary/30"
+              >
+                <motion.div
+                  className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-primary/10 blur-2xl"
+                  whileHover={{ scale: 1.3, opacity: 0.7 }}
+                  transition={{ duration: 0.4 }}
+                />
 
                 <div className="mb-6 inline-flex items-center gap-3">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
+                  <motion.div
+                    whileHover={{ scale: 1.15 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                    className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10"
+                  >
                     <Target className="text-primary" size={26} />
-                  </div>
+                  </motion.div>
                   <h2 className="text-2xl font-bold text-foreground">Our Vision</h2>
                 </div>
 
@@ -171,18 +185,30 @@ const Index = () => {
                     </div>
                   ))}
                 </div>
-              </div>
+              </motion.div>
             </AnimateOnScroll>
 
             {/* Mission */}
             <AnimateOnScroll delay={150}>
-              <div className="relative overflow-hidden rounded-2xl border border-border/60 bg-card p-10 shadow-sm">
-                <div className="absolute -left-10 -bottom-10 h-32 w-32 rounded-full bg-accent/10 blur-2xl" />
+              <motion.div
+                whileHover={{ y: -10 }}
+                transition={{ type: "spring", stiffness: 200, damping: 15 }}
+                className="group relative overflow-hidden rounded-2xl border border-border/60 bg-card p-10 shadow-sm hover:shadow-xl hover:border-accent/30"
+              >
+                <motion.div
+                  className="absolute -left-10 -bottom-10 h-32 w-32 rounded-full bg-accent/10 blur-2xl"
+                  whileHover={{ scale: 1.3, opacity: 0.7 }}
+                  transition={{ duration: 0.4 }}
+                />
 
                 <div className="mb-6 inline-flex items-center gap-3">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10">
+                  <motion.div
+                    whileHover={{ scale: 1.15 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                    className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10"
+                  >
                     <Star className="text-accent" size={26} />
-                  </div>
+                  </motion.div>
                   <h2 className="text-2xl font-bold text-foreground">Our Mission</h2>
                 </div>
 
@@ -204,7 +230,7 @@ const Index = () => {
                     </div>
                   ))}
                 </div>
-              </div>
+              </motion.div>
             </AnimateOnScroll>
           </div>
         </div>
