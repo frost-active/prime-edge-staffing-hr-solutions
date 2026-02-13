@@ -196,25 +196,38 @@ const Contact = () => {
                       <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-primary/10">
                         <Phone size={18} className="text-primary" />
                       </div>
-                      <div>
-                        <p className="text-sm font-medium">Phone</p>
-                        <p className="text-sm text-muted-foreground">​+91 98866 65201 </p>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-primary/10">
-                        <Mail size={18} className="text-primary" />
-                      </div>
-                      <div>
-                        <p className="text-sm font-medium">Email</p>
-                        <p className="text-sm text-muted-foreground">info@primeedgehr.com</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-primary/10">
-                        <MapPin size={18} className="text-primary" />
-                      </div>
-                      <div>
+                      {/* Phone */}
+<div className="flex items-start gap-3">
+  <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-primary/10">
+    <Phone size={18} className="text-primary" />
+  </div>
+  <div>
+    <p className="text-sm font-medium">Phone</p>
+    <a
+      href="tel:+919886665201"
+      className="text-sm text-muted-foreground hover:text-primary transition-colors"
+    >
+      +91 98866 65201
+    </a>
+  </div>
+</div>
+
+{/* Email */}
+<div className="flex items-start gap-3">
+  <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-primary/10">
+    <Mail size={18} className="text-primary" />
+  </div>
+  <div>
+    <p className="text-sm font-medium">Email</p>
+    <a
+      href="mailto:info@primeedgehr.com"
+      className="text-sm text-muted-foreground hover:text-primary transition-colors"
+    >
+      info@primeedgehr.com
+    </a>
+  </div>
+</div>
+
                         <p className="text-sm font-medium">Location</p>
                         <p className="text-sm text-muted-foreground">​Bengaluru, Karnataka </p>
                       </div>
