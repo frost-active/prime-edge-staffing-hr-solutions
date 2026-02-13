@@ -14,30 +14,30 @@ import {
   ArrowRight,
   FileText,
   ClipboardCheck,
-  Calendar,
-} from "lucide-react";
+  Calendar } from
+"lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const leadMagnets = [
-  {
-    icon: ClipboardCheck,
-    title: "Download Compliance Checklist",
-    desc: "Essential statutory compliance checklist for Indian businesses",
-  },
-  { icon: FileText, title: "Free HR Compliance Audit", desc: "Get a comprehensive audit of your HR compliance status" },
-  {
-    icon: Calendar,
-    title: "Request Staffing Proposal",
-    desc: "Custom staffing proposal tailored to your requirements",
-  },
-];
+{
+  icon: ClipboardCheck,
+  title: "Download Compliance Checklist",
+  desc: "Essential statutory compliance checklist for Indian businesses"
+},
+{ icon: FileText, title: "Free HR Compliance Audit", desc: "Get a comprehensive audit of your HR compliance status" },
+{
+  icon: Calendar,
+  title: "Request Staffing Proposal",
+  desc: "Custom staffing proposal tailored to your requirements"
+}];
+
 
 const Contact = () => {
   const { toast } = useToast();
   const [form, setForm] = useState({ name: "", email: "", phone: "", company: "", message: "" });
 
   const scriptURL =
-    "https://script.google.com/macros/s/AKfycbywIky-mGCVck1tz_SniigfAy3Lj9yddFNYretz7tmnBfcGVHa4s0RY6Z-eixBtEEM2/exec";
+  "https://script.google.com/macros/s/AKfycbywIky-mGCVck1tz_SniigfAy3Lj9yddFNYretz7tmnBfcGVHa4s0RY6Z-eixBtEEM2/exec";
 
   const validateEmail = (email: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
@@ -59,7 +59,7 @@ const Contact = () => {
     try {
       const res = await fetch(scriptURL, {
         method: "POST",
-        body: JSON.stringify(form),
+        body: JSON.stringify(form)
       });
 
       const result = await res.json();
@@ -67,7 +67,7 @@ const Contact = () => {
       if (result.result === "success") {
         toast({
           title: "Message Sent!",
-          description: "Thank you for contacting us.",
+          description: "Thank you for contacting us."
         });
 
         setForm({ name: "", email: "", phone: "", company: "", message: "" });
@@ -78,7 +78,7 @@ const Contact = () => {
       toast({
         title: "Submission Failed",
         description: "Something went wrong. Please try again later.",
-        variant: "destructive",
+        variant: "destructive"
       });
     }
   };
@@ -102,8 +102,8 @@ const Contact = () => {
       {/* Lead Magnets */}
       <section className="border-b border-border/50 bg-muted/50 py-10">
         <div className="container-wide grid gap-4 sm:grid-cols-3">
-          {leadMagnets.map((lm, i) => (
-            <AnimateOnScroll key={lm.title} delay={i * 100}>
+          {leadMagnets.map((lm, i) =>
+          <AnimateOnScroll key={lm.title} delay={i * 100}>
               <button className="card-professional group w-full p-5 text-left transition-all hover:border-accent/30">
                 <div className="mb-3 inline-flex items-center justify-center rounded-lg bg-accent/10 p-2.5">
                   <lm.icon size={20} className="text-accent" />
@@ -112,7 +112,7 @@ const Contact = () => {
                 <p className="mt-1 text-xs text-muted-foreground">{lm.desc}</p>
               </button>
             </AnimateOnScroll>
-          ))}
+          )}
         </div>
       </section>
 
@@ -135,8 +135,8 @@ const Contact = () => {
                         required
                         value={form.name}
                         onChange={(e) => setForm({ ...form, name: e.target.value })}
-                        placeholder="Your full name"
-                      />
+                        placeholder="Your full name" />
+
                     </div>
                     <div>
                       <label className="mb-1.5 block text-sm font-medium">Email Address *</label>
@@ -146,8 +146,8 @@ const Contact = () => {
                         pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
                         value={form.email}
                         onChange={(e) => setForm({ ...form, email: e.target.value })}
-                        placeholder="you@company.com"
-                      />
+                        placeholder="you@company.com" />
+
                     </div>
                   </div>
                   <div className="grid gap-5 sm:grid-cols-2">
@@ -157,16 +157,16 @@ const Contact = () => {
                         pattern="^(\+91[\-\s]?)?[6-9]\d{9}$"
                         value={form.phone}
                         onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                        placeholder="+91-9876543210"
-                      />
+                        placeholder="+91-9876543210" />
+
                     </div>
                     <div>
                       <label className="mb-1.5 block text-sm font-medium">Company Name</label>
                       <Input
                         value={form.company}
                         onChange={(e) => setForm({ ...form, company: e.target.value })}
-                        placeholder="Your company"
-                      />
+                        placeholder="Your company" />
+
                     </div>
                   </div>
                   <div>
@@ -176,8 +176,8 @@ const Contact = () => {
                       rows={5}
                       value={form.message}
                       onChange={(e) => setForm({ ...form, message: e.target.value })}
-                      placeholder="Tell us about your HR requirements..."
-                    />
+                      placeholder="Tell us about your HR requirements..." />
+
                   </div>
                   <Button type="submit" size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 gap-2">
                     Send Message <Send size={16} />
@@ -198,7 +198,7 @@ const Contact = () => {
                       </div>
                       <div>
                         <p className="text-sm font-medium">Phone</p>
-                        <p className="text-sm text-muted-foreground">+91-XXXXX XXXXX</p>
+                        <p className="text-sm text-muted-foreground">​+91 98866 65201 </p>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
@@ -232,14 +232,14 @@ const Contact = () => {
                       employment practices and workplace ethics.
                     </p>
                     <div className="mt-3 flex flex-wrap gap-1.5">
-                      {["PF", "ESI", "Labour Law", "POSH"].map((b) => (
-                        <span
-                          key={b}
-                          className="inline-flex items-center gap-1 rounded-full border border-accent/20 bg-accent/10 px-2 py-0.5 text-xs font-medium text-accent"
-                        >
+                      {["PF", "ESI", "Labour Law", "POSH"].map((b) =>
+                      <span
+                        key={b}
+                        className="inline-flex items-center gap-1 rounded-full border border-accent/20 bg-accent/10 px-2 py-0.5 text-xs font-medium text-accent">
+
                           <CheckCircle size={8} /> {b}
                         </span>
-                      ))}
+                      )}
                     </div>
                   </div>
                 </div>
@@ -248,8 +248,8 @@ const Contact = () => {
           </div>
         </div>
       </section>
-    </Layout>
-  );
+    </Layout>);
+
 };
 
 export default Contact;
