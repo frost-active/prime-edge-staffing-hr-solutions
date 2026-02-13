@@ -216,7 +216,7 @@ const Contact = () => {
                       </div>
                       <div>
                         <p className="text-sm font-medium">Location</p>
-                        <p className="text-sm text-muted-foreground">India</p>
+                        <p className="text-sm text-muted-foreground">​Bengaluru, Karnataka </p>
                       </div>
                     </div>
                   </div>
