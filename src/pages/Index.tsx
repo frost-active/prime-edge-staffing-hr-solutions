@@ -177,7 +177,7 @@ const Index = () => {
                   {[
                     "Build long-term partnerships based on trust and transparency",
                     "Empower organizations with the right talent and HR strategy",
-                    "Promote ethical employment and responsible workforce practices",
+                    "Promote ethical employment and responsible workforce practice",
                   ].map((item, i) => (
                     <div key={i} className="flex items-start gap-3">
                       <CheckCircle className="mt-1 text-primary" size={18} />
